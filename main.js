@@ -4,7 +4,7 @@ var price = 1.05;
 var price2 = 1.05;
 var delay = 10;
 var delaymax = 10;
-var speedy = 1000;
+var speedy = 444;
 
 function increasemoney() {
     money += (money /= 100) * intrest;
@@ -18,7 +18,7 @@ function buyupgrade() {
 }
 function buyupgrade2() {
     if(money >= price2) {
-        speedy /= 1.5;
+        delaymax /= 1.5;
         money -= price2;
         price2 *= 5.4; 
      }
