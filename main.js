@@ -4,7 +4,7 @@ var price = 1.05;
 var price2 = 1.05;
 var delay = 10;
 var delaymax = 10;
-var speedy = 444;
+var speedy = 1000;
 
 function increasemoney() {
     money += (money /= 100) * intrest;
