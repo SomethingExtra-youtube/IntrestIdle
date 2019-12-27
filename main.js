@@ -48,7 +48,7 @@ function updateUI() {
     document.getElementById("intrest").textContent = "intrest: %" + intrest;
     document.getElementById("upgradesP").textContent = "price: $" + price;
     document.getElementById("upgradesP2").textContent = "price: $" + price2;
-    document.getElementById("skill").textContent = "skill points: " + jobpoints + "/" + jobmax + " till promotion";
+    document.getElementById("skill").textContent = "skill points: " + jobpoints + "/" + jobmax + " till promotion!!";
     document.getElementById("jobpri").textContent = "price: " + jobprice + " skill points";
 }
 function update() {
