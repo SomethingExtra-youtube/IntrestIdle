@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,25 +7,45 @@
     <link rel="stylesheet" href="styles.css">
     <title>idle intrest</title>
 </head>
-<script src="main.js"></script>  
+<script src="main.js"></script>
+
 <body>
-<div id="delay">intrest pay: 10</div>
-<div id="clicks">$1</div>
-<div id="intrest">intrest: %2</div>
-<br>
-<button onclick="buyupgrade()">upgrade intrest %</button>
-<div id="upgradesP">price: $1.05</div>
-<br>
-<button onclick="buyupgrade2()">decrease time between intrest</button>
-<div id="upgradesP2">price: $1.05</div>
-<br>
-<br>
-<br>
-<div id="skill">skill points: 0</div>
-<button onclick="job()">do your job</button>
-<br>
-<br>
-<button onclick="buyupgrade3()">upgrade skill points per click</button>
-<div id="jobpri">price: 0</div>
+    <div class="header">
+        <h3>Welcome to the Interest Game!</h3>
+        <p>You start the game with a measly $1, but guess what! You're earning interest which gets paid out at specific
+            time
+            periods.<br />
+            Your objective is to make as much money as possible in as short a time as possible.
+        </p>
+    </div>
+    <div class="game">
+        <h3>Financials</h3>
+        <div id="delay">Interest pay: </div>
+
+        <div id="clicks">Your Money: </div>
+        <div id="intrest">Interest: </div>
+        <br>
+        <div class="buy_button">
+            <button onclick="buy_interest_upgrade()">Upgrade interest %</button>
+            <div id="upgradesP">Price: </div>
+        </div>
+        <div class="buy_button">
+            <button onclick="buyupgrade2()">Decrease time between interest</button>
+            <div id="upgradesP2">Price: </div>
+        </div>
+        <br>
+        <hr>
+        <h3>Work</h3>
+        <p>Do your job to generate more money. <br/>
+            For each skill point upgrade, you will increase the amount of skill points and money that 
+            you earn per click
+        </p>
+        <button id="btn_work" onclick="job()">Do your job (earn skill points)</button>
+        <div id="skill">Skill points: </div>
+        <br>
+        <button onclick="buyupgrade3()">Upgrade skill points per click</button>
+        <div id="jobpri">Price: </div>
+    </div>
 </body>
+
 </html>

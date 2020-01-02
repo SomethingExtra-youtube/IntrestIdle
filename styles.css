@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14;
+}
+
+button {
+    padding: 5px;
+    background-color: brown;
+    color: white;
+    font-size: 16;
+    display: inline-block;
+    width: 200px;
+}
+
+.header {
+    padding: 5px;
+    background-color: brown;
+    color: white;
+}
+
+.game {
+    padding: 5px;
+}
+
+.buy_button {
+    clear: both;
+}
+
+hr {
+}
