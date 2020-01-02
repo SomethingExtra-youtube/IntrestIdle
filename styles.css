@@ -13,6 +13,11 @@ button {
     width: 200px;
 }
 
+button:disabled {
+    background-color: gray;
+    color: black;
+}
+
 .header {
     padding: 5px;
     background-color: brown;

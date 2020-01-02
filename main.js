@@ -59,10 +59,14 @@ function updateUI() {
     document.getElementById("clicks").textContent = `Your Money: $${round_to_precision(money, 2)}`;
     document.getElementById("intrest").textContent = `Interest: %${intrest}`;
     document.getElementById("upgradesP").textContent = `Price: $${round_to_precision(price, 2)}`;
+    document.getElementById("btn_upgradesP").disabled = (money < price);
     document.getElementById("upgradesP2").textContent = `Price: $${round_to_precision(price2, 2)}`;
+    document.getElementById("btn_upgradesP2").disabled = (money < price2);
     document.getElementById("skill").textContent = `Skill points: ${jobpoints}/${jobmax} till promotion!!`;
     document.getElementById("jobpri").textContent = `Price: ${jobprice} skill points`;
+    document.getElementById("btn_jobpri").disabled = (jobpoints < jobprice);
     document.querySelector("#btn_work").textContent = `Do your job (+${jobplus} skill points)`;
+
 }
 function update() {
 
