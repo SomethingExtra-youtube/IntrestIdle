@@ -2,7 +2,8 @@ var money = 1;
 var intrest = 2;
 var price = 1.05;
 var price2 = 1.05;
-var delay = 100;
+var price3 = 3;
+var delay = 0;
 var delaymax = 100;
 var minus = 1;
 var moneyplus = 0.01;
@@ -20,7 +21,7 @@ function buyupgrade() {
         updateUI();
        intrest += 1;
        money -= price;
-       price *= 1.5; 
+       price *= 5.4; 
     }
 }
 function buyupgrade2() {
@@ -28,47 +29,50 @@ function buyupgrade2() {
         updateUI();
         minus += 1;
         money -= price2;
-        price2 *= 5.4; 
+        price2 *= 1.7; 
      }
 }
 function buyupgrade3() {
-    if(jobpoints >= jobprice) {
+    if(jobpoints >= jobprice && money >= price3) {
         updateUI();
+        money -= price3
         jobplus += 1;
         jobpoints -= jobprice;
         jobprice *= 4;
+        price3 *= 3;
      }
 }
 function updateUI() {
-    money = round_to_precision(money, 0.01);
-    price = round_to_precision(price, 0.01);
-    price2 = round_to_precision(price2, 0.01);
-    document.getElementById("delay").textContent = "intrest pay: " + delay;
-    document.getElementById("clicks").textContent = "$" + money;
-    document.getElementById("intrest").textContent = "intrest: %" + intrest;
-    document.getElementById("upgradesP").textContent = "price: $" + price;
-    document.getElementById("upgradesP2").textContent = "price: $" + price2;
+    document.getElementById("delay").textContent = "interest pay: " + delay.toFixed(2) + "/" + delaymax;
+    document.getElementById("clicks").textContent = "$"+ money.toFixed(2);
+    document.getElementById("intrest").textContent = "interest: %" + intrest.toFixed(2);
+    document.getElementById("upgradesP").textContent = "price: $" + price.toFixed(2);
+    document.getElementById("upgradesP2").textContent = "price: $" + price2.toFixed(2);
     document.getElementById("skill").textContent = "skill points: " + jobpoints + "/" + jobmax + " till promotion!!";
-    document.getElementById("jobpri").textContent = "price: " + jobprice + " skill points";
+    document.getElementById("jobpri").textContent = "price: " + jobprice + " skill points and $" + price3;
+    document.getElementById("jobbutton").textContent = "do your job for $" + moneyplus.toFixed(2);
+    document.getElementById("skillperclick").textContent = "skill points per click: " + jobplus;
+    price3.toFixed(2);
+    jobmax.toFixed(0);
 }
 function update() {
+    updateUI();
     function timer() {
         if (money < 1) {
             money = 1;
         }
         updateUI();
-        delay -= minus;
-        if(delay <= 0) {
+        delay += minus;
+        if(delay >= delaymax) {
             increasemoney();
-            delay = delaymax;
+            delay = 0;
         }
         if(jobpoints >= jobmax) {
-            moneyplus *= 1.7;
+            moneyplus *= 1.6;
             jobmax *= 3;
-            jobpoints = 0;
         }
     }
-    setInterval(timer, 1000);
+    setInterval(timer, 500);
 }
 function job() {
     jobpoints += jobplus;
@@ -76,7 +80,3 @@ function job() {
     updateUI();
 }
 window.onload = update;
-function round_to_precision(x, precision) {
-    var y = +x + (precision === undefined ? 0.5 : precision/2);
-    return y - (y % (precision === undefined ? 1 : +precision));
-}
